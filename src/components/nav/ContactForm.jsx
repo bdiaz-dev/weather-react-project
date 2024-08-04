@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
 export default function ContactForm ({
-  lang
+  lang,
+  detailsRef
 }) {
   const [buttonDisabled, setButtonDisabled] = useState(true)
   const [nameInput, setNameInput] = useState('')
@@ -22,14 +23,39 @@ export default function ContactForm ({
   }, [nameInput, birthdateInput, cityInput, emailInput, phoneInput])
 
   const handleSend = () => {
-    const userConfirmed = window.confirm(`Is this your right data? \n Your name is ${nameInput} \n You has birth on ${birthdateInput} \n You lives on ${cityInput} \n Your email is ${emailInput} \n And your phone is ${phoneInput}`)
+    const text = {
+      en: {
+        question: 'Is this your right data?',
+        name: 'Your name is',
+        birth: 'You has birth on',
+        lives: 'You lives on',
+        email: 'Your email is',
+        phone: 'And your phone is',
+        contact: 'Thanks, we will contact you soon.'
+      },
+      es: {
+        question: 'Estos son tus datos?',
+        name: 'Te llamas',
+        birth: 'Naciste el',
+        lives: 'Vives en',
+        email: 'Tu correo es',
+        phone: 'Y tu teléfono es',
+        contact: 'Gracias, pronto nos pondremos en contacto.'
+      }
+    }
+
+    const userConfirmed = window.confirm(`${text[lang].question} \n \n ${text[lang].name} ${nameInput} \n ${text[lang].birth} ${birthdateInput} \n ${text[lang].lives} ${cityInput} \n ${text[lang].email} ${emailInput} \n ${text[lang].phone} ${phoneInput}`)
+
     if (userConfirmed) {
-      window.alert('Thanks, we will contact you soon.')
+      window.alert(text[lang].contact)
     }
   }
 
   return (
-    <details id='contactForm'>
+    <details
+      ref={detailsRef}
+      id='contactForm'
+    >
       <summary>{lang === 'en' ? 'Contact us' : 'Contactanos'}</summary>
       <form action=''>
 
@@ -38,7 +64,7 @@ export default function ContactForm ({
           type='text'
           value={nameInput}
           onChange={(e) => { setNameInput(e.target.value) }}
-          placeholder='Jhon Doe'
+          placeholder='John Doe'
         />
 
         <label>{lang === 'en' ? 'Birthday' : 'Fecha de nac.'}</label>

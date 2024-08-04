@@ -20,6 +20,7 @@ function App () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef()
   const buttonRef = useRef()
+  const detailsRef = useRef()
 
   useEffect(() => {
     const fetchForecastWeather = async (city) => {
@@ -37,6 +38,13 @@ function App () {
     fetchForecastWeather(city)
     fetchWeather(city)
   }, [city, lang])
+
+  useEffect(() => {
+    console.log(isMenuOpen)
+    if (!isMenuOpen) {
+      detailsRef.current.open = false
+    }
+  }, [isMenuOpen])
 
   const handleOpenMenu = () => {
     menuRef.current.classList.toggle('openMenu')
@@ -72,6 +80,7 @@ function App () {
           <hr style={{ width: '85%' }} />
           <ContactForm
             lang={lang}
+            detailsRef={detailsRef}
           />
 
         </nav>
