@@ -1,0 +1,15 @@
+:root {
+  /* Dark mode */
+  --enfasis-text-color-dark: orange;
+  --shadow-title-dark: orangered;
+  --background-color-dark: gray;
+  --nav-background-color-dark: #161616;
+  --button-background-dark: #1a1a1a;
+
+  /* Light Mode */
+  --enfasis-text-color-light: white;
+  --shadow-title-light: blue;
+  --background-color-light: darkgray;
+  --nav-background-color-light: dimgray;
+  --button-background-light: #f9f9f9;
+}
