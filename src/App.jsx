@@ -10,6 +10,7 @@ import ContactForm from './components/nav/ContactForm'
 import todayDate from './libs/todayDate'
 import { setCityName } from './libs/cities'
 import MenuButton from './components/nav/MenuButton'
+import PageHead from './components/helmet/PageHead'
 
 function App () {
   const [lang, setLang] = useState('en')
@@ -44,61 +45,70 @@ function App () {
   }
 
   return (
-    <main>
-      <MenuButton
-        openMenu={handleOpenMenu}
-        buttonRef={buttonRef}
-      />
-      <LangButtons
-        lang={lang}
-        setLang={setLang}
-      />
-      <nav ref={menuRef}>
-        <Cities
-          setCity={setCity}
-          selectedCity={city}
-          lang={lang}
-          closeMenu={handleOpenMenu}
+    <>
+      {
+        weatherData &&
+          <PageHead
+            title={`${weatherData.weather[0].description} ${Math.round(weatherData.main.temp)}º`}
+            favicon={`${import.meta.env.VITE_ICONS_URL_BASE}${weatherData.weather[0].icon}.png`}
+          />
+      }
+      <main>
+        <MenuButton
+          openMenu={handleOpenMenu}
+          buttonRef={buttonRef}
         />
-        <hr style={{ width: '85%' }} />
-        <ContactForm
+        <LangButtons
           lang={lang}
+          setLang={setLang}
         />
+        <nav ref={menuRef}>
+          <Cities
+            setCity={setCity}
+            selectedCity={city}
+            lang={lang}
+            closeMenu={handleOpenMenu}
+          />
+          <hr style={{ width: '85%' }} />
+          <ContactForm
+            lang={lang}
+          />
 
-      </nav>
-      <article>
-        <h1>Weather App</h1>
-        <h2>{todayDate(lang)}</h2>
+        </nav>
+        <article>
+          <h1>Weather App</h1>
+          <h2>{todayDate(lang)}</h2>
 
-        {/* ACTUAL WEATHER */}
-        {
-          weatherData &&
-            <section>
-              <WeatherMain
-                city={setCityName({ selectedCity: city, lang })}
-                weatherData={weatherData}
-              />
-              <WeatherDetails
-                weatherData={weatherData}
-                lang={lang}
-                city={setCityName({ selectedCity: city, lang })}
-              />
-            </section>
-        }
+          {/* ACTUAL WEATHER */}
+          {
+            weatherData &&
+              <section>
+                <WeatherMain
+                  city={setCityName({ selectedCity: city, lang })}
+                  weatherData={weatherData}
+                />
+                <WeatherDetails
+                  weatherData={weatherData}
+                  lang={lang}
+                  city={setCityName({ selectedCity: city, lang })}
+                />
+              </section>
+          }
 
-        {/* FORECAST WEATHER */}
-        {
-          forecastWeatherData &&
-            <section>
-              <Forecast
-                forecastWeatherData={forecastWeatherData}
-                lang={lang}
-                city={setCityName({ selectedCity: city, lang })}
-              />
-            </section>
-        }
-      </article>
-    </main>
+          {/* FORECAST WEATHER */}
+          {
+            forecastWeatherData &&
+              <section>
+                <Forecast
+                  forecastWeatherData={forecastWeatherData}
+                  lang={lang}
+                  city={setCityName({ selectedCity: city, lang })}
+                />
+              </section>
+          }
+        </article>
+      </main>
+    </>
   )
 }
 
