@@ -35,7 +35,7 @@ export default function ContactForm ({
     setButtonDisabled(!allInputsFilled)
   }, [nameInput, birthdateInput, cityInput, emailInput, phoneInput])
 
-  const handleSend = () => {
+  const handleSend = (e) => {
     const text = {
       en: {
         question: 'Is this your right data?',
@@ -62,11 +62,13 @@ export default function ContactForm ({
     }
     const phoneRegex = /^[0-9]{9,}$/
     if (!phoneRegex.test(phoneInput)) {
+      e.preventDefault()
       window.alert(text[lang].phoneError)
       return
     }
 
     if (!emailRef.current.checkValidity()) {
+      e.preventDefault()
       window.alert(text[lang].emailError)
       return
     }
@@ -75,6 +77,8 @@ export default function ContactForm ({
 
     if (userConfirmed) {
       window.alert(text[lang].contact)
+    } else {
+      e.preventDefault()
     }
   }
 
@@ -128,7 +132,7 @@ export default function ContactForm ({
         <button
           disabled={buttonDisabled}
           style={{ borderColor: (buttonDisabled ? '#1a1a1a' : 'white') }}
-          onClick={handleSend}
+          onClick={(e) => { handleSend(e) }}
           title={sendTitle}
           className='formButton'
         >
