@@ -40,7 +40,6 @@ function App () {
   }, [city, lang])
 
   useEffect(() => {
-    console.log(isMenuOpen)
     if (!isMenuOpen) {
       detailsRef.current.open = false
     }
