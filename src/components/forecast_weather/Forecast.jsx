@@ -29,6 +29,9 @@ export default function Forecast ({
               <span>{item.weather[0].description}</span>
               <span>{` ${Math.round(item.main.temp)}º`}</span>
             </div>
+            <b className='forecastArrow'>
+              {'>'}
+            </b>
           </li>
         ))}
       </ul>

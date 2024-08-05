@@ -153,6 +153,7 @@
   li {
     padding: 10px;
     min-width: 100px;
+    position: relative;
 
     img {
       margin: auto;
@@ -168,6 +169,13 @@
       }
     }
   }
+}
+
+.forecastArrow {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  font-size: 1.5em;
 }
 
 #weatherMain.noOpacity,

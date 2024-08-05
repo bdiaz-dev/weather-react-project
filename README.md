@@ -1,4 +1,6 @@
-# React + Vite
+# Weather App
+
+[Visitar proyecto en producción](https://weatherapp.brunodiaz.es)
 
 Aplicación React de consulta del clima hecha para la prueba tecnica nº1.
 
@@ -8,7 +10,7 @@ Se conecta con la Api de [openweathermap.org](https://openweathermap.or) para da
 
 * Al seleccionar una de las ciudades se mostrará el clima actual: con el icono correspondiente, la descripción y la temperatura; y a continuación la siguiente información complementaria: temperatura máxima y minima, sensación térmica, velocidad y dirección del viento y humedad.
 
-* También se mostrará un listado de previsiones para los próximos 5 dias en intervalos de 3 horas que mostrará la fecha y hora de esa previsión (configuradas para mostrarse en un formato de lectura rapida), el icono, la descripción y la temperatura.
+* También se mostrará un listado de previsiones para los próximos 5 dias en intervalos de 3 horas que mostrará la fecha y hora de esa previsión (configuradas para mostrarse en un formato de lectura rapida), el icono, la descripción y la temperatura. Esta se muestra como un listado lateral que se puede deslizar tanto con la barra de desplazamiento como arrastrandola en modo tactil.
 
 * Selección de idioma mediante el componente ubicado de forma fija en la esquina superior derecha. El idioma predeterminado será el inglés y toda la aplicación esta traducida.
 
@@ -29,7 +31,7 @@ Y todos los componentes se adaptarán para ajustarse de manera estetica al tama�
 
 * Aplicación en producción y bajo un subdominio propio.
 
-** Hecho con ♥ por [BrunoDiaz.es](https://www.brunodiaz.es)
+** Hecho con ♥ por [BrunoDiaz.es](https://www.brunodiaz.es) **
 
 
 
