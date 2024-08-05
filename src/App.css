@@ -207,7 +207,7 @@
   display: block;
   width: 42px;
   height: 4px;
-  background-color: gray;
+  background-color: var(--menu-button-dark);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -229,12 +229,21 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .langActive, .cityActive, #weatherDescription, #weatherDetails li span, #forecastList li div span, #cities li:hover, #contactForm summary:hover {
+  .langActive,
+  .cityActive,
+  #weatherDescription,
+  #weatherDetails li span,
+  #forecastList li div span,
+  #cities li:hover,
+  #contactForm summary:hover {
     color: var(--enfasis-text-color-light);
   }
   .detailsSVG {
     filter: none;
     opacity: 0.1;
+  }
+  #menuButton span {
+    background-color: var(--menu-button-light);
   }
 }
 

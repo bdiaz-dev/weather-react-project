@@ -5,6 +5,7 @@
   --background-color-dark: gray;
   --nav-background-color-dark: #161616;
   --button-background-dark: #1a1a1a;
+  --menu-button-dark: gray;
 
   /* Light Mode */
   --enfasis-text-color-light: orange;
@@ -12,4 +13,5 @@
   --background-color-light: rgb(231, 230, 217);
   --nav-background-color-light: rgb(146, 143, 105);
   --button-background-light: rgb(146, 143, 105);
+  --menu-button-light: rgb(0, 0, 0);
 }
