@@ -10,6 +10,18 @@ export default function ContactForm ({
   const [cityInput, setCityInput] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [phoneInput, setPhoneInput] = useState('')
+  const [sendTitle, setSendTitle] = useState('')
+
+  useEffect(() => {
+    const title = buttonDisabled
+      ? lang === 'en'
+        ? 'Fill all data to send'
+        : 'Rellene toda la información para enviar'
+      : lang === 'en'
+        ? 'Send contact request'
+        : 'Envíe la solicitud de contacto'
+    setSendTitle(title)
+  }, [lang, buttonDisabled])
 
   useEffect(() => {
     const allInputsFilled =
@@ -101,6 +113,7 @@ export default function ContactForm ({
           disabled={buttonDisabled}
           style={{ borderColor: (buttonDisabled ? '#1a1a1a' : '') }}
           onClick={handleSend}
+          title={sendTitle}
         >
           {lang === 'en' ? 'Send' : 'Enviar'}
         </button>
