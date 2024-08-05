@@ -15,12 +15,19 @@
   top: 4px;
 }
 
-.langActive, .cityActive {
+.langActive,
+.cityActive {
   color: var(--enfasis-text-color-dark);
 }
 
 #langButton {
-  padding: 3px 7px !important;
+  padding: 3px 7px;
+  background-color: var(--lang-button-background-dark);
+
+
+  &:hover {
+    border-color: var(--enfasis-text-color-dark);
+  }
 }
 
 #cities {
@@ -73,13 +80,19 @@
       text-align: start;
       margin-top: 5px;
     }
-    
-    button {
-      margin-top: 5px;
-      background-color: var(--form-button-dark);
+  }
+
+  button {
+    margin-top: 5px;
+    background-color: var(--form-button-dark);
+
+    &:hover {
+      border-color: var(--enfasis-text-color-dark);
     }
   }
+
 }
+
 #contactForm button:disabled {
   background-color: var(--nav-background-color-dark);
 }
@@ -233,6 +246,7 @@
 }
 
 @media (prefers-color-scheme: light) {
+
   .langActive,
   .cityActive,
   #weatherDescription,
@@ -242,16 +256,32 @@
   #contactForm summary:hover {
     color: var(--enfasis-text-color-light);
   }
+
   .detailsSVG {
     filter: none;
     opacity: 0.1;
   }
+
+  #langButton {
+    background-color: var(--lang-button-background-light);
+
+    &:hover {
+      border-color: var(--enfasis-text-color-light);
+    }
+  }
+
   #menuButton span {
     background-color: var(--menu-button-light);
   }
-  #contactForm button{
-    background-color: var(--form-button-light)!important;
+
+  #contactForm button {
+    background-color: var(--form-button-light);
+
+    &:hover {
+      border-color: var(--enfasis-text-color-light);
+    }
   }
+
   #contactForm button:disabled {
     background-color: var(--nav-background-color-light);
   }
@@ -261,9 +291,10 @@
   #menuButton {
     display: flex;
   }
-  
+
   #weatherDetails {
     margin: 5px 5px 40px 5px;
+
     li {
       width: 90px;
     }
