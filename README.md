@@ -16,7 +16,7 @@ Se conecta con la Api de [openweathermap.org](https://openweathermap.or) para da
 
 * En la barra lateral se encuentra también el formulario de contacto oculto, que se mostrará cuando el usuario haga click en el botón "Contact us".
 Este formulario tendrá por defecto el botón "Send" deshabilitado hasta rellenar todos los campos.
-Una vez se envíe, se mostrará una consulta al usuario preguntando si toda la información esta correcta, si se confirma se mostrará una alerta indicando que el propietario de la aplicación se pondra en contacto lo antes posible.
+Una vez se envíe, primero se comprobara que el correo y el teléfono sean correctos (si no lo son se mostrará una alerta), si es así se mostrará una consulta al usuario preguntando si toda la información esta correcta, si se confirma se mostrará una alerta indicando que el propietario de la aplicación se pondra en contacto lo antes posible.
 
 ## Extras
 
