@@ -23,7 +23,7 @@ Una vez se envíe, se mostrará una consulta al usuario preguntando si toda la i
 * Aplicación responsiva: cuando el tamaño de pantalla sea demasiado estrecho pasará a versión movil donde la barra lateral quedará oculta tras un botón "hamburguesa" dinamico que cambiara a "X" cuando esta este abierta. Y tambien se cerrará automaticamente al pulsar una de las ciudades. Además el formulario de contacto volverá a ocultarse cuando se cierre la barra.
 Y todos los componentes se adaptarán para ajustarse de manera estetica al tamaño de pantalla y/o ventana.
 
-* Modo oscuro y claro sincronizado con la configuración del dispositivo que abra la aplicación.
+* Modo oscuro y claro sincronizado con la configuración del dispositivo que abra la aplicación. *(Con archivo CSS dedicado a las variables de color para poder ajustar la apariencia de ambos modos en desarrollo de forma sencilla)*
 
 * Todas las interacciones y actualizacion de información en pantalla estan animadas para una experiencia mas agradable.
 

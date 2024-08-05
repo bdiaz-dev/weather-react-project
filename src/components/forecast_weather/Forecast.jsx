@@ -18,7 +18,7 @@ export default function Forecast ({
     <>
       <h3>{lang === 'en' ? 'Forecast Weather' : 'Pronóstico'}</h3>
       <ul id='forecastList' ref={mainRef}>
-        {forecastWeatherData.list.map((item) => (
+        {forecastWeatherData.list.map((item, i) => (
           <li key={item.dt}>
             <div>
               <b>{dateFix({ dt: (item.dt_txt.substring(0, 10)), lang })}</b>
@@ -29,9 +29,12 @@ export default function Forecast ({
               <span>{item.weather[0].description}</span>
               <span>{` ${Math.round(item.main.temp)}º`}</span>
             </div>
-            <b className='forecastArrow'>
-              {'>'}
-            </b>
+            {
+              (i + 1 < forecastWeatherData.list.length) &&
+                <b className='forecastArrow'>
+                  {'>'}
+                </b>
+            }
           </li>
         ))}
       </ul>
