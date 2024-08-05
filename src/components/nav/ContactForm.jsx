@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function ContactForm ({
   lang,
@@ -11,6 +11,7 @@ export default function ContactForm ({
   const [emailInput, setEmailInput] = useState('')
   const [phoneInput, setPhoneInput] = useState('')
   const [sendTitle, setSendTitle] = useState('')
+  const emailRef = useRef()
 
   useEffect(() => {
     const title = buttonDisabled
@@ -43,7 +44,9 @@ export default function ContactForm ({
         lives: 'You lives on',
         email: 'Your email is',
         phone: 'And your phone is',
-        contact: 'Thanks, we will contact you soon.'
+        contact: 'Thanks, we will contact you soon.',
+        emailError: 'Please, verify your email',
+        phoneError: 'Please, verify your phone'
       },
       es: {
         question: 'Estos son tus datos?',
@@ -52,8 +55,20 @@ export default function ContactForm ({
         lives: 'Vives en',
         email: 'Tu correo es',
         phone: 'Y tu teléfono es',
-        contact: 'Gracias, pronto nos pondremos en contacto.'
+        contact: 'Gracias, pronto nos pondremos en contacto.',
+        emailError: 'Por favor, verifica tu correo',
+        phoneError: 'Por favor, verifica tu teléfono'
       }
+    }
+    const phoneRegex = /^[0-9]{9,}$/
+    if (!phoneRegex.test(phoneInput)) {
+      window.alert(text[lang].phoneError)
+      return
+    }
+
+    if (!emailRef.current.checkValidity()) {
+      window.alert(text[lang].emailError)
+      return
     }
 
     const userConfirmed = window.confirm(`${text[lang].question} \n \n ${text[lang].name} ${nameInput} \n ${text[lang].birth} ${birthdateInput} \n ${text[lang].lives} ${cityInput} \n ${text[lang].email} ${emailInput} \n ${text[lang].phone} ${phoneInput}`)
@@ -100,6 +115,7 @@ export default function ContactForm ({
           value={emailInput}
           onChange={(e) => { setEmailInput(e.target.value) }}
           placeholder='your@email.es'
+          ref={emailRef}
         />
 
         <label>{lang === 'en' ? 'Phone number' : 'Teléfono'}</label>
@@ -111,9 +127,10 @@ export default function ContactForm ({
         />
         <button
           disabled={buttonDisabled}
-          style={{ borderColor: (buttonDisabled ? '#1a1a1a' : '') }}
+          style={{ borderColor: (buttonDisabled ? '#1a1a1a' : 'white') }}
           onClick={handleSend}
           title={sendTitle}
+          className='formButton'
         >
           {lang === 'en' ? 'Send' : 'Enviar'}
         </button>

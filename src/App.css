@@ -74,10 +74,14 @@
       margin-top: 5px;
     }
     
-    botton {
+    button {
       margin-top: 5px;
+      background-color: var(--form-button-dark);
     }
   }
+}
+#contactForm button:disabled {
+  background-color: var(--nav-background-color-dark);
 }
 
 #weatherMain {
@@ -244,6 +248,12 @@
   }
   #menuButton span {
     background-color: var(--menu-button-light);
+  }
+  #contactForm button{
+    background-color: var(--form-button-light)!important;
+  }
+  #contactForm button:disabled {
+    background-color: var(--nav-background-color-light);
   }
 }
 
