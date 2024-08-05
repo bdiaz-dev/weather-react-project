@@ -7,9 +7,9 @@
   --button-background-dark: #1a1a1a;
 
   /* Light Mode */
-  --enfasis-text-color-light: white;
-  --shadow-title-light: blue;
-  --background-color-light: darkgray;
-  --nav-background-color-light: dimgray;
-  --button-background-light: #f9f9f9;
+  --enfasis-text-color-light: orange;
+  --shadow-title-light: orangered;
+  --background-color-light: rgb(231, 230, 217);
+  --nav-background-color-light: rgb(146, 143, 105);
+  --button-background-light: rgb(146, 143, 105);
 }

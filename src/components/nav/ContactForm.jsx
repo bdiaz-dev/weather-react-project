@@ -68,7 +68,7 @@ export default function ContactForm ({
       ref={detailsRef}
       id='contactForm'
     >
-      <summary>{lang === 'en' ? 'Contact us' : 'Contactanos'}</summary>
+      <summary>{lang === 'en' ? 'Contact us' : 'Contáctanos'}</summary>
       <form action=''>
 
         <label>{lang === 'en' ? 'Name' : 'Nombre'}</label>

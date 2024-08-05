@@ -232,6 +232,10 @@
   .langActive, .cityActive, #weatherDescription, #weatherDetails li span, #forecastList li div span, #cities li:hover, #contactForm summary:hover {
     color: var(--enfasis-text-color-light);
   }
+  .detailsSVG {
+    filter: none;
+    opacity: 0.1;
+  }
 }
 
 @media (max-width: 730px) {
