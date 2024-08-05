@@ -31,7 +31,7 @@ Y todos los componentes se adaptarán para ajustarse de manera estetica al tama�
 
 * Aplicación en producción y bajo un subdominio propio.
 
-** Hecho con ♥ por [BrunoDiaz.es](https://www.brunodiaz.es) **
+*Hecho con ♥ por [BrunoDiaz.es](https://www.brunodiaz.es)*
 
 
 
